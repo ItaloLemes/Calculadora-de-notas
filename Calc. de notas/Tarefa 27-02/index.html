@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação de Aprovação</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Verificação de Aprovação</h2>
+    <label for="nomeAluno">Nome do Aluno:</label><br>
+    <input type="text" id="nomeAluno"><br><br>
+
+    <label for="notaCiclo1">Nota do Ciclo 1:</label><br>
+    <input type="number" id="notaCiclo1"><br><br>
+
+    <label for="notaCiclo2">Nota do Ciclo 2:</label><br>
+    <input type="number" id="notaCiclo2"><br><br>
+
+    <label for="notaCiclo3">Nota do Ciclo 3:</label><br>
+    <input type="number" id="notaCiclo3"><br><br>
+
+    <button onclick="verificarAprovacao()">Verificar Aprovação</button><br><br>
+
+    <p id="resultado"></p>
+</div>
+
+<script>
+function verificarAprovacao() {
+    var nomeAluno = document.getElementById("nomeAluno").value;
+    var notaCiclo1 = parseFloat(document.getElementById("notaCiclo1").value);
+    var notaCiclo2 = parseFloat(document.getElementById("notaCiclo2").value);
+    var notaCiclo3 = parseFloat(document.getElementById("notaCiclo3").value);
+
+    var media = (notaCiclo1 + notaCiclo2 + notaCiclo3) / 3;
+
+    var resultado = document.getElementById("resultado");
+
+    if (media >= 6) {
+        resultado.textContent = nomeAluno + " foi aprovado com média " + media.toFixed(2) + "!";
+    } else {
+        resultado.textContent = nomeAluno + " foi reprovado com média " + media.toFixed(2) + ".";
+    }
+}
+</script>
+</body>
+</html>
